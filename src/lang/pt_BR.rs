@@ -145,7 +145,7 @@ pub static ref T: std::collections::HashMap<&'static str, &'static str> =
         ("Failed to make direct connection to remote desktop", "Falha ao fazer conexão direta ao desktop remoto"),
         ("Set Password", "Definir Senha"),
         ("OS Password", "Senha do Sistema"),
-        ("install_tip", "Devido ao UAC, o RustDesk não funciona corretamente como o lado remoto em alguns casos. Para evitar o UAC, por favor clique no botão abaixo para instalar o RustDesk no sistema."),
+        ("install_tip", "Para a RoxPC te atender melhor, clique em Instalar. Assim o acesso funciona mesmo nas janelas do administrador (UAC)."),
         ("Click to upgrade", "Iniciar atualização"),
         ("Configure", "Configurar"),
         ("config_acc", "Para controlar seu computador remotamente, você precisa conceder ao RustDesk permissões de \"Acessibilidade\"."),
