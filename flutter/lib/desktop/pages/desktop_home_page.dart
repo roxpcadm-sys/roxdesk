@@ -80,11 +80,6 @@ class _DesktopHomePageState extends State<DesktopHomePage>
     final isOutgoingOnly = bind.isOutgoingOnly();
     final children = <Widget>[
       if (!isOutgoingOnly) buildPresetPasswordWarning(),
-      if (bind.isCustomClient())
-        Align(
-          alignment: Alignment.center,
-          child: loadPowered(context),
-        ),
       Align(
         alignment: Alignment.center,
         child: loadLogo(),
@@ -92,6 +87,7 @@ class _DesktopHomePageState extends State<DesktopHomePage>
       buildTip(context),
       if (!isOutgoingOnly) buildIDBoard(context),
       if (!isOutgoingOnly) buildPasswordBoard(context),
+      if (!isOutgoingOnly) buildRoxpcHelp(context),
       FutureBuilder<Widget>(
         future: Future.value(
             Obx(() => buildHelpCards(stateGlobal.updateUrl.value))),
@@ -386,6 +382,23 @@ class _DesktopHomePageState extends State<DesktopHomePage>
     );
   }
 
+  Widget buildRoxpcHelp(BuildContext context) {
+    final textColor = Theme.of(context).textTheme.titleLarge?.color;
+    return Container(
+      margin: const EdgeInsets.only(left: 20.0, right: 16, top: 2, bottom: 10),
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+      decoration: BoxDecoration(
+        color: MyTheme.accent.withOpacity(0.08),
+        borderRadius: BorderRadius.circular(8),
+      ),
+      child: Text(
+        'Passe este ID e esta senha para a RoxPC\nWhatsApp (73) 99824-3911',
+        style: TextStyle(
+            fontSize: 12, height: 1.35, color: textColor?.withOpacity(0.75)),
+      ),
+    );
+  }
+
   buildTip(BuildContext context) {
     final isOutgoingOnly = bind.isOutgoingOnly();
     return Padding(
@@ -612,8 +625,8 @@ class _DesktopHomePageState extends State<DesktopHomePage>
                 begin: Alignment.centerLeft,
                 end: Alignment.centerRight,
                 colors: [
-                  Color.fromARGB(255, 226, 66, 188),
-                  Color.fromARGB(255, 244, 114, 124),
+                  Color(0xFF2B1F74),
+                  Color(0xFF5B45E0),
                 ],
               )),
               padding: EdgeInsets.all(20),
